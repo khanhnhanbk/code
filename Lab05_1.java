@@ -1,7 +1,6 @@
 import java.io.*;
 import javax.crypto.*;
 import javax.crypto.spec.*;
-import java.util.Arrays;
 
 public class Lab05_1 {
   private static String[] DesModes = {
@@ -30,6 +29,7 @@ public class Lab05_1 {
       br.close();
 
       // Create Cipher object
+      System.out.println(DesModes[DesMode]);
       Cipher encrypt = Cipher.getInstance(DesModes[DesMode]);
       encrypt.init(Cipher.ENCRYPT_MODE, secretKey);
       long start = System.currentTimeMillis();
@@ -87,6 +87,7 @@ public class Lab05_1 {
       br.close();
 
       // Create Cipher object
+      System.out.println(DesModes[desMode]);
       Cipher decrypt = Cipher.getInstance(DesModes[desMode]);
       decrypt.init(Cipher.DECRYPT_MODE, secretKey);
 
@@ -117,14 +118,7 @@ public class Lab05_1 {
 
   static public void main(String[] args) throws Exception {
     System.out.println("Lab05_1");
-    System.out.print("Enter mode: ");
-    /*
-     * private static String[] DesModes = {
-     * "DES/ECB/PKCS5Padding",
-     * "DES/ECB/NoPadding",
-     * "DES/CBC/PKCS5Padding",
-     * "DES/CBC/NoPadding", };
-     */
+    System.out.println("Enter mode: ");
     System.out.println("1. DES/ECB/PKCS5Padding");
     System.out.println("2. DES/ECB/NoPadding");
     System.out.println("3. DES/CBC/PKCS5Padding");
